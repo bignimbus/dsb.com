@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node build/main.js && http-server"
   },
   "repository": {
     "type": "git",
@@ -18,13 +18,16 @@
   "homepage": "https://github.com/bignimbus/dsb.com",
   "dependencies": {
     "backbone": "^1.2.1",
+    "font-awesome": "^4.3.0",
     "handlebars": "^3.0.3",
+    "jquery": "^2.1.4",
     "underscore": "^1.8.3"
   },
   "devDependencies": {
     "browserify": "^10.2.4",
     "hbsfy": "^2.2.1",
     "jeet": "^6.1.2",
+    "mkdirp": "^0.5.1",
     "rupture": "^0.6.1",
     "stylus": "^0.51.1"
   }
