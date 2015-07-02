@@ -51,99 +51,64 @@ html {
 }
 body {
   background-color: #fff;
-  background-image: linear-gradient(90deg, rgba(200,0,0,0.3) 50%, transparent 50%), linear-gradient(rgba(200,0,0,0.3) 50%, transparent 50%);
-  background-size: 16px 16px;
+  background-image: linear-gradient(90deg, rgba(200,0,0,0.5) 50%, transparent 50%), linear-gradient(rgba(200,0,0,0.5) 50%, transparent 50%);
+  background-size: 64px 64px;
   height: 100%;
   margin: 0;
   padding: 0;
   position: relative;
 }
+#container {
+  *zoom: 1;
+  width: auto;
+  max-width: 900px;
+  float: none;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 0;
+  padding-right: 0;
+  box-shadow: 0 0 26px 8px #000;
+  position: relative;
+}
+#container:before,
+#container:after {
+  content: '';
+  display: table;
+}
+#container:after {
+  clear: both;
+}
 .main-header {
-  *zoom: 1;
-  float: left;
-  clear: none;
-  text-align: inherit;
+  display: block;
+  clear: both;
+  float: none;
   width: 100%;
-  margin-left: 0%;
-  margin-right: 0%;
-  *zoom: 1;
+  margin-left: auto;
+  margin-right: auto;
   background-color: #7e007e;
   position: relative;
 }
-.main-header:before,
-.main-header:after {
-  content: '';
-  display: table;
-}
-.main-header:after {
-  clear: both;
+.main-header:first-child {
+  margin-left: auto;
 }
 .main-header:last-child {
-  margin-right: 0%;
-}
-.main-header:before,
-.main-header:after {
-  content: '';
-  display: table;
-}
-.main-header:after {
-  clear: both;
+  margin-right: auto;
 }
 .main-header h1 {
-  *zoom: 1;
   padding: 0.5rem 0;
-  text-align: center;
-}
-.main-header h1:before,
-.main-header h1:after {
-  content: '';
-  display: table;
-}
-.main-header h1:after {
-  clear: both;
+  text-align: left;
 }
 .main-header h1 .logo {
-  *zoom: 1;
-  float: left;
-  clear: none;
-  text-align: inherit;
-  width: 22.75%;
-  margin-left: 0%;
-  margin-right: 3%;
   background: url("/assets/images/dsb_fish.png") no-repeat;
-  background-size: contain;
-  height: 70px;
-}
-.main-header h1 .logo:before,
-.main-header h1 .logo:after {
-  content: '';
-  display: table;
-}
-.main-header h1 .logo:after {
-  clear: both;
-}
-.main-header h1 .logo:last-child {
-  margin-right: 0%;
+  background-size: cover;
+  display: inline-block;
+  height: 64px;
+  width: 100px;
 }
 .main-header h1 .header-text {
-  *zoom: 1;
-  float: left;
-  clear: none;
-  text-align: inherit;
-  width: 74.25%;
-  margin-left: 0%;
-  margin-right: 3%;
-}
-.main-header h1 .header-text:before,
-.main-header h1 .header-text:after {
-  content: '';
-  display: table;
-}
-.main-header h1 .header-text:after {
-  clear: both;
-}
-.main-header h1 .header-text:last-child {
-  margin-right: 0%;
+  display: inline-block;
+  vertical-align: bottom;
 }
 .main-header .hero {
   position: absolute;
@@ -155,38 +120,23 @@ body {
   filter: grayscale(100%);
   width: 100%;
 }
-.main {
-  height: 80%;
-  position: relative;
-}
 .main-nav {
-  *zoom: 1;
-  float: left;
-  clear: none;
-  text-align: inherit;
-  width: 25%;
-  margin-left: 0%;
-  margin-right: 0%;
+  display: block;
+  clear: both;
+  float: none;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
   background-color: #ff0;
   color: #027e00;
-  min-height: 100%;
   position: relative;
   text-shadow: 0 0 3px #ff0;
 }
-.main-nav:before,
-.main-nav:after {
-  content: '';
-  display: table;
+.main-nav:first-child {
+  margin-left: auto;
 }
-.main-nav:after {
-  clear: both;
-}
-.main-nav:nth-child(2n) {
-  margin-right: 0%;
-  float: right;
-}
-.main-nav:nth-child(2n+1) {
-  clear: both;
+.main-nav:last-child {
+  margin-right: auto;
 }
 .main-nav span.fa {
   display: none;
@@ -194,69 +144,54 @@ body {
 .main-nav ul {
   background-color: #ff0;
 }
-@media only screen and (max-width: 700px) {
+@media only screen and (max-width: 715px) {
   .main-nav {
-    *zoom: 1;
-    float: left;
-    clear: none;
-    text-align: inherit;
-    width: 100%;
-    margin-left: 0%;
-    margin-right: 0%;
-    height: 2rem;
+    height: 32px;
     margin: 0;
     min-height: 0;
     padding: 0;
   }
-  .main-nav:before,
-  .main-nav:after {
-    content: '';
-    display: table;
-  }
-  .main-nav:after {
-    clear: both;
-  }
-  .main-nav:nth-child(3n) {
-    margin-right: 0%;
-    float: left;
-  }
-  .main-nav:nth-child(3n+1) {
-    clear: none;
-  }
-  .main-nav:nth-child(1n) {
-    margin-right: 0%;
-    float: right;
-  }
-  .main-nav:nth-child(1n+1) {
-    clear: both;
-  }
   .main-nav span.fa {
     display: inherit;
-    font-size: 2rem;
+    font-size: 32px;
   }
   .main-nav ul {
-    height: 100%;
-    position: fixed;
+    *zoom: 1;
+    position: absolute;
     top: 5000px;
     transition: top 0.5s;
     width: 100%;
     z-index: 2;
   }
+  .main-nav ul:before,
+  .main-nav ul:after {
+    content: '';
+    display: table;
+  }
+  .main-nav ul:after {
+    clear: both;
+  }
   .main-nav.show ul {
-    top: 2rem;
+    top: 32px;
   }
 }
 .main-content {
+  display: block;
+  clear: both;
+  float: none;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
   *zoom: 1;
-  float: left;
-  clear: none;
-  text-align: inherit;
-  width: 75%;
-  margin-left: 0%;
-  margin-right: 0%;
   background-color: #7e007e;
-  min-height: 100%;
+  min-height: 80%;
   position: relative;
+}
+.main-content:first-child {
+  margin-left: auto;
+}
+.main-content:last-child {
+  margin-right: auto;
 }
 .main-content:before,
 .main-content:after {
@@ -266,79 +201,22 @@ body {
 .main-content:after {
   clear: both;
 }
-.main-content:nth-child(2n) {
-  margin-right: 0%;
-  float: right;
-}
-.main-content:nth-child(2n+1) {
-  clear: both;
-}
-@media only screen and (max-width: 700px) {
-  .main-content {
-    *zoom: 1;
-    float: left;
-    clear: none;
-    text-align: inherit;
-    width: 100%;
-    margin-left: 0%;
-    margin-right: 3%;
-  }
-  .main-content:before,
-  .main-content:after {
-    content: '';
-    display: table;
-  }
-  .main-content:after {
-    clear: both;
-  }
-  .main-content:nth-child(2n) {
-    margin-right: 3%;
-    float: left;
-  }
-  .main-content:nth-child(2n+1) {
-    clear: none;
-  }
-  .main-content:nth-child(1n) {
-    margin-right: 0%;
-    float: right;
-  }
-  .main-content:nth-child(1n+1) {
-    clear: both;
-  }
-}
 .main-footer {
-  *zoom: 1;
-  float: left;
-  clear: none;
-  text-align: inherit;
+  display: block;
+  clear: both;
+  float: none;
   width: 100%;
-  margin-left: 0%;
-  margin-right: 0%;
+  margin-left: auto;
+  margin-right: auto;
   background-color: #fe0002;
   bottom: 0;
   color: #fff;
 }
-.main-footer:before,
-.main-footer:after {
-  content: '';
-  display: table;
+.main-footer:first-child {
+  margin-left: auto;
 }
-.main-footer:after {
-  clear: both;
-}
-.main-footer:nth-child(2n) {
-  margin-right: 0%;
-  float: left;
-}
-.main-footer:nth-child(2n+1) {
-  clear: none;
-}
-.main-footer:nth-child(1n) {
-  margin-right: 0%;
-  float: right;
-}
-.main-footer:nth-child(1n+1) {
-  clear: both;
+.main-footer:last-child {
+  margin-right: auto;
 }
 div,
 nav,
@@ -356,9 +234,75 @@ ul {
 .main-nav {
   text-align: center;
 }
+.main-nav ul {
+  *zoom: 1;
+}
+.main-nav ul:before,
+.main-nav ul:after {
+  content: '';
+  display: table;
+}
+.main-nav ul:after {
+  clear: both;
+}
 .main-nav li {
-  margin: 1rem auto;
+  padding: 1rem 0;
   position: relative;
+  *zoom: 1;
+  float: left;
+  clear: none;
+  text-align: inherit;
+  width: 16.666666666666664%;
+  margin-left: 0%;
+  margin-right: 0%;
+}
+.main-nav li:before,
+.main-nav li:after {
+  content: '';
+  display: table;
+}
+.main-nav li:after {
+  clear: both;
+}
+.main-nav li:nth-child(6n) {
+  margin-right: 0%;
+  float: right;
+}
+.main-nav li:nth-child(6n+1) {
+  clear: both;
+}
+@media only screen and (max-width: 715px) {
+  .main-nav li {
+    *zoom: 1;
+    float: left;
+    clear: none;
+    text-align: inherit;
+    width: 100%;
+    margin-left: 0%;
+    margin-right: 3%;
+  }
+  .main-nav li:before,
+  .main-nav li:after {
+    content: '';
+    display: table;
+  }
+  .main-nav li:after {
+    clear: both;
+  }
+  .main-nav li:nth-child(6n) {
+    margin-right: 3%;
+    float: left;
+  }
+  .main-nav li:nth-child(6n+1) {
+    clear: none;
+  }
+  .main-nav li:nth-child(1n) {
+    margin-right: 0%;
+    float: right;
+  }
+  .main-nav li:nth-child(1n+1) {
+    clear: both;
+  }
 }
 .main-nav li a {
   color: inherit;

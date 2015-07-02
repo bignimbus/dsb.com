@@ -1,8 +1,15 @@
 .main-nav {
     text-align: center;
+    ul {
+        cf();
+    }
     li {
-        margin: 1rem auto;
+        padding: 1rem 0;
         position: relative;
+        col(1/6, gutter: 0, cycle: 6);
+        +mobile() {
+            col(1, uncycle: 6, cycle: 1)
+        }
         a {
             color: inherit;
             text-decoration: none;

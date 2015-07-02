@@ -18,6 +18,8 @@
   "homepage": "https://github.com/bignimbus/dsb.com",
   "dependencies": {
     "backbone": "^1.2.1",
+    "backbone.marionette": "^2.4.2",
+    "backbone.radio": "^1.0.0",
     "font-awesome": "^4.3.0",
     "handlebars": "^3.0.3",
     "jquery": "^2.1.4",

@@ -1,4 +1,4 @@
-var Handlebars = require("hbsfy/runtime");
+var Handlebars = require('hbsfy/runtime');
 
 module.exports = function () {
     'use strict';

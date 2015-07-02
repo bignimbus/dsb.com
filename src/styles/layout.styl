@@ -11,23 +11,29 @@ body {
     position: relative;
 }
 
+#container {
+    center(max_width = 900px);
+    box-shadow: 0 0 26px 8px #000;
+    position: relative;
+}
+
 .main-header {
-    col(1, gutter: 0);
-    cf();
+    stack(pad = 0);
     background-color: $color_1;
     position: relative;
     h1 {
-        cf();
         padding: .5rem 0;
-        text-align: center;
+        text-align: left;
         .logo {
-            col(1/4);
             background: url(/assets/images/dsb_fish.png) no-repeat;
-            background-size: contain;
-            height: 70px;
+            background-size: cover;
+            display: inline-block;
+            height: 64px;
+            width: 100px;
         }
         .header-text {
-            col(3/4);
+            display: inline-block;
+            vertical-align: bottom;
         }
     }
     .hero {
@@ -41,16 +47,10 @@ body {
     }
 }
 
-.main {
-    height: 80%;
-    position: relative;
-}
-
 .main-nav {
-    col(1/4, cycle: 2, gutter: 0);
+    stack(pad = 0);
     background-color: $color_3;
     color: $color_4;
-    min-height: 100%;
     position: relative;
     text-shadow: 0 0 3px $color_3;
     span.fa {
@@ -63,7 +63,6 @@ body {
 
 +mobile() {
     .main-nav {
-        col(1, cycle: 1, uncycle: 3, gutter: 0);
         height: $mobile_nav_size;
         margin: 0;
         min-height: 0;
@@ -73,8 +72,9 @@ body {
             font-size: $mobile_nav_size;
         }
         ul {
-            height: 100%;
-            position: fixed;
+            cf();
+            // height: 100%;
+            position: absolute;
             top: 5000px;
             transition: top .5s;
             width: 100%;
@@ -89,17 +89,15 @@ body {
 }
 
 .main-content {
-    col(3/4, cycle: 2, gutter: 0);
+    stack(pad = 0);
+    cf();
     background-color: $color_1;
-    min-height: 100%;
+    min-height: 80%;
     position: relative;
-    +mobile() {
-        col(1, cycle: 1, uncycle: 2);
-    }
 }
 
 .main-footer {
-    col(1, cycle: 1, uncycle: 2, gutter: 0);
+    stack(pad = 0);
     background-color: $color_2;
     bottom: 0;
     color: #fff;

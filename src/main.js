@@ -1,11 +1,8 @@
 var $ = require('jquery'),
-    Backbone = require('backbone'),
-    Router = require('./router');
-
-require('./helpers')();
+    App = require('./app'),
+    app = new App();
 
 $(document).ready(function () {
     'use strict';
-    new Router();
-    Backbone.history.start();
+    app.start();
 });
