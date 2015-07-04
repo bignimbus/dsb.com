@@ -1,7 +1,6 @@
 var $ = require('jquery'),
     _ = require('underscore'),
-    Backbone = require('backbone'),
-    AppView = require('./views/about');
+    Backbone = require('backbone');
 
 Backbone.Radio = require('backbone.radio');
 
@@ -16,10 +15,6 @@ module.exports = Backbone.Router.extend({
         "reviews": "reviews"
     },
     "channel": Backbone.Radio.channel('state'),
-    "initialize": function (opts) {
-        'use strict';
-        this.layoutView = opts.layoutView;
-    },
     "about": function () {
         'use strict';
         this.channel.trigger('load', 'about');

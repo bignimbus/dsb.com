@@ -1,15 +1,16 @@
 var $ = require('jquery'),
+    _ = require('underscore'),
     Backbone = require('backbone'),
     Mn = require('backbone.marionette');
 
 module.exports = Mn.ItemView.extend({
-    "interval": 500,
-    "onBeforeDestroy": function () {
+    "interval": 300,
+    "hidePage": function (fn) {
         'use strict';
-        this.$el.fadeOut(this.interval);
+        this.$el.fadeOut(this.interval, fn);
     },
-    "onRender": function () {
+    "showPage": function (fn) {
         'use strict';
-        this.$el.fadeIn(this.interval);
+        this.$el.fadeIn(this.interval, fn);
     }
 });

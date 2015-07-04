@@ -34,6 +34,9 @@ body {
         .header-text {
             display: inline-block;
             vertical-align: bottom;
+            +mobile() {
+                font-size: 1.2rem;
+            }
         }
     }
     .hero {
@@ -74,14 +77,15 @@ body {
         ul {
             cf();
             // height: 100%;
-            position: absolute;
+            position: fixed;
             top: 5000px;
-            transition: top .5s;
+            transition: top $interval, position $interval;
             width: 100%;
             z-index: 2;
         }
         &.show {
             ul {
+                position: absolute;
                 top: $mobile_nav_size;
             }
         }
@@ -94,6 +98,9 @@ body {
     background-color: $color_1;
     min-height: 80%;
     position: relative;
+    > div > * > div {
+        display: none;
+    }
 }
 
 .main-footer {

@@ -13,6 +13,10 @@
         a {
             color: inherit;
             text-decoration: none;
+            transition: color $interval;
+            &.current {
+                color: $color_2;
+            }
             &:before,
             &:after {
                 background: url(/assets/images/dsb_chili.png) no-repeat;
@@ -21,7 +25,7 @@
                 display: inline-block;
                 height: 1rem;
                 opacity: 0;
-                transition: opacity .3s;
+                transition: opacity $interval;
                 width: 1rem;
             }
             &:hover {

@@ -1,5 +1,10 @@
-.main-content {
-    > * {
-        display: none;
+@import 'pages/about';
+
+.graphic-header {
+    &:nth-of-type(odd) {
+        @extend $graphic_header_ext_1;
+    }
+    &:nth-of-type(even) {
+        @extend $graphic_header_ext_2;
     }
 }

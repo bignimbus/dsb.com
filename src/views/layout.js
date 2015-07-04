@@ -11,7 +11,10 @@ Backbone.Radio = require('backbone.radio');
 
 module.exports = Mn.LayoutView.extend({
     "template": template,
-    "channel": Backbone.Radio.channel('state'),
+    "channels": {
+        "state": Backbone.Radio.channel('state'),
+        "interactions": Backbone.Radio.channel('interactions')
+    },
     "regions": {
         "header": ".main-header",
         "navigation": ".main-nav",
@@ -19,7 +22,8 @@ module.exports = Mn.LayoutView.extend({
     },
     "initialize": function () {
         'use strict';
-        this.listenToOnce(this.channel, 'load', this.initState);
+        this.listenToOnce(this.channels.state, 'load', this.initState);
+        this.listenTo(this.channels.interactions, 'menu', this.toggleMenu);
     },
     "initState": function (state) {
         'use strict';
@@ -33,5 +37,9 @@ module.exports = Mn.LayoutView.extend({
         this.showChildView('content', new ContentView({
             "state": this.state
         }));
+    },
+    "toggleMenu": function (opts) {
+        'use strict';
+        this.$(this.regions.navigation)[opts.method]('show');
     }
 });

@@ -7,6 +7,8 @@ $color_5 = #fc00fc;
 $mobile_nav_size = 32px;
 $header_size = 80px;
 
+$interval = .3s;
+
 rupture.mobile-cutoff = 715px;
 
 $table_cloth() {
@@ -18,4 +20,71 @@ $table_cloth() {
 $grayscale() {
     -webkit-filter: grayscale(100%);
     filter: grayscale(100%);
+}
+
+$text_shadow() {
+    text-shadow: 1px 1px 1px #000;
+}
+
+$graphic_header_1() {
+    background: url(/assets/images/paul.jpg) 50% 50%;
+    height: 3rem;
+    position: relative;
+    width: 100%;
+    > * {
+        background: $color_5;
+        height: 100%;
+        line-height: 3rem;
+        margin: 0;
+        min-width: 5rem;
+        position: absolute;
+        right: 0;
+        text-align: right;
+        &:before {
+            border-color: transparent transparent $color_5 transparent;
+            border-style: solid;
+            border-width: 0 0 3rem 3rem;
+            content: '';
+            height: 0;
+            left: -3rem;
+            position: absolute;
+            width: 0;
+        }
+    }
+}
+
+$graphic_header_2() {
+    background: url(/assets/images/paul.jpg) 50% 50%;
+    height: 3rem;
+    position: relative;
+    width: 100%;
+    > * {
+        background: $color_3;
+        color: $color_4;
+        height: 100%;
+        left: 0;
+        line-height: 3rem;
+        margin: 0;
+        min-width: 5rem;
+        position: absolute;
+        text-align: left;
+        &:before {
+            border-color: transparent transparent $color_3 transparent;
+            border-style: solid;
+            border-width: 0 3rem 3rem 0;
+            content: '';
+            height: 0;
+            position: absolute;
+            right: -3rem;
+            width: 0;
+        }
+    }
+}
+
+$graphic_header_ext_1 {
+    $graphic_header_1();
+}
+
+$graphic_header_ext_2 {
+    $graphic_header_2();
 }
