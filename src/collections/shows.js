@@ -3,12 +3,6 @@ var Backbone = require('backbone');
 module.exports = Backbone.Collection.extend({
     "index": 0,
     "url": "http://jdauriemma.startlogic.com/dsb/get-events.php",
-    "initialize": function () {
-        'use strict';
-        this.listenTo(this, 'sync', function () {
-            console.log(this);
-        });
-    },
     "comparator": function (model) {
         'use strict';
         return +model.get('time');

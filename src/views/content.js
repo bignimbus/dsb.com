@@ -2,6 +2,7 @@ var _ = require('underscore'),
     Backbone = require('backbone'),
     Mn = require('backbone.marionette'),
     ChildView = require('./child-view'),
+    ListenView = require('./listen'),
     template = require('../templates/content.hbs'),
     pageTemplates = {
         "about": require('../templates/about.hbs'),
@@ -54,7 +55,7 @@ module.exports = Mn.LayoutView.extend({
             "about": new ChildView({
                 "template": pageTemplates.about
             }),
-            "listen": new ChildView({
+            "listen": new ListenView({
                 "template": pageTemplates.listen
             }),
             "reviews": new ChildView({
