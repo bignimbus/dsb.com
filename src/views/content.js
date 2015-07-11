@@ -3,11 +3,12 @@ var _ = require('underscore'),
     Mn = require('backbone.marionette'),
     SongCollection = require('../collections/song-list'),
     ShowCollection = require('../collections/shows'),
+    AudioCollection = require('../collections/audio'),
     ChildView = require('./child-view'),
     CollectionView = require('./group-view'),
     EventView = require('./event'),
-    ListenView = require('./listen'),
     SongView = require('./song'),
+    AudioView = require('./audio'),
     template = require('../templates/content.hbs'),
     pageTemplates = {
         "about": require('../templates/about.hbs'),
@@ -60,8 +61,9 @@ module.exports = Mn.LayoutView.extend({
             "about": new ChildView({
                 "template": pageTemplates.about
             }),
-            "listen": new ListenView({
-                "template": pageTemplates.listen
+            "listen": new CollectionView({
+                "collection": new AudioCollection(),
+                "childView": AudioView
             }),
             "reviews": new ChildView({
                 "template": pageTemplates.reviews
