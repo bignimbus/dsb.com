@@ -1,8 +1,13 @@
 var _ = require('underscore'),
     Backbone = require('backbone'),
     Mn = require('backbone.marionette'),
+    SongCollection = require('../collections/song-list'),
+    ShowCollection = require('../collections/shows'),
     ChildView = require('./child-view'),
+    CollectionView = require('./group-view'),
+    EventView = require('./event'),
     ListenView = require('./listen'),
+    SongView = require('./song'),
     template = require('../templates/content.hbs'),
     pageTemplates = {
         "about": require('../templates/about.hbs'),
@@ -61,11 +66,13 @@ module.exports = Mn.LayoutView.extend({
             "reviews": new ChildView({
                 "template": pageTemplates.reviews
             }),
-            "shows": new ChildView({
-                "template": pageTemplates.shows
+            "shows": new CollectionView({
+                "collection": new ShowCollection(),
+                "childView": EventView
             }),
-            "songList": new ChildView({
-                "template": pageTemplates.songList
+            "songList": new CollectionView({
+                "collection": new SongCollection(),
+                "childView": SongView
             }),
             "watch": new ChildView({
                 "template": pageTemplates.watch

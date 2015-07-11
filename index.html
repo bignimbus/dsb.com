@@ -12,22 +12,6 @@
     <body>
         <div id="container"></div>
     </body>
-    <script>
-        (function isFlashEnabled () {
-            'use strict';
-            window.hasFlash = false;
-            try {
-                var flash = new window.ActiveXObject('ShockwaveFlash.ShockwaveFlash');
-                if (flash) {
-                    window.hasFlash = true;
-                }
-            } catch(e) {
-                if (window.navigator.mimeTypes ["application/x-shockwave-flash"] !== void 0) {
-                    window.hasFlash = true;
-                }
-            }
-        })();
-    </script>
     <script src="//connect.soundcloud.com/sdk-2.0.0.js"></script>
     <script src="/dist/app.js"></script>
 </html>
