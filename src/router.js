@@ -7,12 +7,12 @@ Backbone.Radio = require('backbone.radio');
 module.exports = Backbone.Router.extend({
     "routes": {
         "": "about",
-        "about": "about",
-        "song-list": "songList",
-        "listen": "listen",
-        "watch": "watch",
-        "shows": "shows",
-        "reviews": "reviews"
+        "!about": "about",
+        "!song-list": "songList",
+        "!listen": "listen",
+        "!watch": "watch",
+        "!shows": "shows",
+        "!reviews": "reviews"
     },
     "channel": Backbone.Radio.channel('state'),
     "about": function () {

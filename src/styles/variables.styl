@@ -26,15 +26,25 @@ $text_shadow() {
     text-shadow: 1px 1px 1px #000;
 }
 
-$graphic_header_1() {
-    background: url(/assets/images/paul.jpg) 50% 50%;
-    height: 3rem;
+$graphic_header_odd($path, $height=3rem) {
+    height: $height;
     position: relative;
     width: 100%;
+    &:before {
+        background: url($path) 50% 50%;
+        content: '';
+        -webkit-filter: grayscale(100%);
+        filter: grayscale(100%);
+        height: 100%;
+        position: absolute;
+        width: 100%;
+        z-index: 0;
+    }
     > * {
         background: $color_5;
+        font-size: .5 * $height;
         height: 100%;
-        line-height: 3rem;
+        line-height: $height;
         margin: 0;
         min-width: 5rem;
         position: absolute;
@@ -43,27 +53,37 @@ $graphic_header_1() {
         &:before {
             border-color: transparent transparent $color_5 transparent;
             border-style: solid;
-            border-width: 0 0 3rem 3rem;
+            border-width: 0 0 $height $height;
             content: '';
             height: 0;
-            left: -3rem;
+            left: -1 * $height;
             position: absolute;
             width: 0;
         }
     }
 }
 
-$graphic_header_2() {
-    background: url(/assets/images/paul.jpg) 50% 50%;
-    height: 3rem;
+$graphic_header_even($path, $height=3rem) {
+    height: $height;
     position: relative;
     width: 100%;
+    &:before {
+        background: url($path) 50% 50%;
+        content: '';
+        -webkit-filter: grayscale(100%);
+        filter: grayscale(100%);
+        height: 100%;
+        position: absolute;
+        width: 100%;
+        z-index: 0;
+    }
     > * {
         background: $color_3;
         color: $color_4;
+        font-size: .5 * $height;
         height: 100%;
         left: 0;
-        line-height: 3rem;
+        line-height: $height;
         margin: 0;
         min-width: 5rem;
         position: absolute;
@@ -71,20 +91,44 @@ $graphic_header_2() {
         &:before {
             border-color: transparent transparent $color_3 transparent;
             border-style: solid;
-            border-width: 0 3rem 3rem 0;
+            border-width: 0 $height $height 0;
             content: '';
             height: 0;
             position: absolute;
-            right: -3rem;
+            right: -1 * $height;
             width: 0;
         }
     }
 }
 
 $graphic_header_ext_1 {
-    $graphic_header_1();
+    $graphic_header_odd('/assets/images/2013-buckalews.jpg');
 }
 
 $graphic_header_ext_2 {
-    $graphic_header_2();
+    $graphic_header_even('/assets/images/paul.jpg');
+}
+
+$graphic_header_ext_3 {
+    $graphic_header_odd('/assets/images/2013-yacht-club.jpg');
+}
+
+$graphic_header_ext_4 {
+    $graphic_header_even('/assets/images/2013-buckalews-4.jpg');
+}
+
+$graphic_header_ext_1_sm {
+    $graphic_header_odd('/assets/images/2013-buckalews.jpg', 2rem);
+}
+
+$graphic_header_ext_2_sm {
+    $graphic_header_even('/assets/images/paul.jpg', 2rem);
+}
+
+$graphic_header_ext_3_sm {
+    $graphic_header_odd('/assets/images/2013-yacht-club.jpg', 2rem);
+}
+
+$graphic_header_ext_4_sm {
+    $graphic_header_even('/assets/images/2013-buckalews-4.jpg', 2rem);
 }

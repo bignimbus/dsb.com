@@ -1,10 +1,42 @@
-@import 'pages/about';
+.main-content {
+    @import 'pages/about';
+    @import 'pages/song-list';
+    @import 'pages/listen';
 
-.graphic-header {
-    &:nth-of-type(odd) {
-        @extend $graphic_header_ext_1;
+    .graphic-header {
+        &0 {
+            @extend $graphic_header_ext_1;
+            &.small {
+                @extend $graphic_header_ext_1_sm;
+            }
+        }
+        &1 {
+            @extend $graphic_header_ext_2;
+            &.small {
+                @extend $graphic_header_ext_2_sm;
+            }
+        }
+        &2 {
+            @extend $graphic_header_ext_3;
+            &.small {
+                @extend $graphic_header_ext_3_sm;
+            }
+        }
+        &3 {
+            @extend $graphic_header_ext_4;
+            &.small {
+                @extend $graphic_header_ext_4_sm;
+            }
+        }
     }
-    &:nth-of-type(even) {
-        @extend $graphic_header_ext_2;
+
+    .spacer {
+        background: url(/assets/images/dsb_chili.png) no-repeat;
+        background-size: contain;
+        content: '';
+        display: inline-block;
+        height: 1rem;
+        transition: opacity $interval;
+        width: 1rem;
     }
 }

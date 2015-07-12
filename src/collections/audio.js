@@ -6,7 +6,14 @@ module.exports = Backbone.Collection.extend({
     "fetch": function () {
         'use strict';
         SC.get('/playlists/121174072', _.bind(function (response) {
-            this.set(response.tracks);
+            var tracks = _(response.tracks).map(this.indexTracks, this);
+            this.set(tracks);
         }, this));
+    },
+    "indexTracks": function (track, index) {
+        'use strict';
+        return _.extend(track, {
+            "trackIndex": (index + 1) % 2
+        });
     }
 });

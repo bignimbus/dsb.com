@@ -1,8 +1,16 @@
-<img src="{{artwork_url}}">
-Title: {{title}}
-Genre: {{genre}}
-Description: {{description}}
-Url: {{stream_url}}
+<section class="graphic-header{{trackIndex}} small">
+    <h3>{{title}}</h3>
+</section>
+<section class="player">
+    <div class="cover">
+        <img src="{{artwork_url}}" alt="{{title}}" data-stream="{{stream_url}}">
+    </div>
+    <p class="description">{{description}}</p>
+</section>
+{{!-- <ul>
+    <li>Tags: {{tag_list}}</li>
+    <li>Genre: {{genre}}</li>
+</ul> --}}
 
 {{!-- {
   "tag_list": "Cover Party Parx",

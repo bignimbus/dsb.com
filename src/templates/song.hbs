@@ -1,1 +1,8 @@
-{{title}} {{artist}} {{genre}}
+<div class="graphic-header{{index}}">
+    <h2>{{name}}</h2>
+</div>
+<ul>
+{{#each songs}}
+    <li><strong>{{title}}</strong> <span class="spacer"></span> {{artist}}</li>
+{{/each}}
+</ul>
