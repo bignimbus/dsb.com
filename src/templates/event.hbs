@@ -1,1 +1,22 @@
-{{moment time}} {{info}} {{location}} {{summary}}
+<section class="info">
+    <div class="text">
+        <h3>{{summary}}</h3>
+        <div class="cal">
+            <div class="day">
+                {{moment time 'ddd'}}
+            </div>
+            <div class="date">
+                {{moment time 'MMM D, YYYY'}}
+            </div>
+            <div class="time">
+                {{moment time 'h:mma'}}
+            </div>
+        </div>
+        <div class="misc">
+            {{getLinks info}}
+        </div>
+    </div>
+    <div class="map">
+        <iframe frameborder="0" src="https://www.google.com/maps/embed/v1/place?q={{address location}}&key=AIzaSyAMYO0neG22yUo8rCK4sVmnzIKc8CjgMfM"></iframe>
+    </div>
+</div>

@@ -1,0 +1,46 @@
+#shows button {
+    background-color: $color_5;
+    border: 0;
+    border-radius: 0;
+    box-shadow: 0 1px 1px #000;
+    color: #fff;
+    display: block;
+    font-size: 1rem;
+    margin: 1rem auto;
+    padding: .8rem 2rem;
+    transition: box-shadow @interval;
+    &:hover {
+        box-shadow: 0 1px 1px #fff;
+        cursor: pointer;
+    }
+}
+
+.event {
+    cf();
+    margin-top: 1rem;
+}
+
+.info {
+    text-align: center;
+    .text {
+        col(2/5, cycle: 2, gutter: 0);
+        h3 {
+            font-weight: normal;
+            margin-top: 0;
+        }
+    }
+    .map {
+        col(3/5, cycle: 2, gutter: 0);
+        position: relative;
+        iframe {
+            border: 0;
+            height: 100%;
+            width: 100%;
+        }
+    }
+    .text, .map {
+        +mobile() {
+            col(1, cycle: 1, uncycle: 2);
+        }
+    }
+}

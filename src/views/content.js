@@ -6,7 +6,7 @@ var _ = require('underscore'),
     AudioCollection = require('../collections/audio'),
     ChildView = require('./child-view'),
     CollectionView = require('./group-view'),
-    EventView = require('./event'),
+    ShowsView = require('./shows'),
     SongView = require('./song'),
     AudioView = require('./audio'),
     template = require('../templates/content.hbs'),
@@ -68,9 +68,8 @@ module.exports = Mn.LayoutView.extend({
             "reviews": new ChildView({
                 "template": pageTemplates.reviews
             }),
-            "shows": new CollectionView({
-                "collection": new ShowCollection(),
-                "childView": EventView
+            "shows": new ShowsView({
+                "template": pageTemplates.shows
             }),
             "songList": new CollectionView({
                 "collection": new SongCollection(),

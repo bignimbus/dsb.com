@@ -3,5 +3,6 @@ var Mn = require('backbone.marionette'),
     template = require('../templates/event.hbs');
 
 module.exports = Mn.ItemView.extend({
-    "template": template
+    "template": template,
+    "className": "event"
 });
