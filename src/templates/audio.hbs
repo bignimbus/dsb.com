@@ -1,9 +1,10 @@
-<section class="graphic-header{{trackIndex}} small">
+<section class="graphic-header{{trackIndex}} no-image">
     <h3>{{title}}</h3>
 </section>
 <section class="player">
     <div class="cover">
-        <img src="{{artwork_url}}" alt="{{title}}" data-stream="{{stream_url}}">
+        <div class="art" {{#if artwork_url}}style="background-image:url('{{artwork_url}}');" {{/if}}data-stream="{{stream_url}}">&nbsp;</div>
+        <span class="play fa fa-play"></span>
     </div>
     <p class="description">{{description}}</p>
 </section>

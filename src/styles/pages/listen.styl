@@ -1,15 +1,44 @@
 .track {
-    col(1/2, cycle: 2);
+    col(1/2, cycle: 2, gutter: 0);
     .cover {
-        col(1/3, cycle: 2);
+        col(1/3, cycle: 2, gutter: 0);
+        height: 115px;
+        position: relative;
+        width: 115px;
+        .art {
+            background-image: url(/assets/images/dsb_fish.png);
+            background-size: contain;
+            background-repeat: no-repeat;
+            border-radius: 50%;
+            center(115px);
+            height: 100%;
+            margin: 0 auto;
+            position: relative;
+            width: 100%;
+        }
+        +mobile() {
+            background-color: #000;
+            .art {
+                border-radius: 0;
+            }
+        }
+        .play {
+            font-size: 3rem;
+            left: 50%;
+            opacity: .5;
+            position: absolute;
+            top: 50%;
+            -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+        }
     }
     .description {
-        col(2/3, cycle: 2);
+        col(2/3, cycle: 2, gutter: 0);
     }
     +mobile() {
-        col(1, cycle: 1, uncycle: 2);
+        col(1, cycle: 1, uncycle: 2, gutter: 0);
         .cover, .description {
-            col(1, cycle: 1, uncycle: 2);
+            col(1, cycle: 1, uncycle: 2, gutter: 0);
         }
     }
 }
