@@ -9,10 +9,9 @@ module.exports = Backbone.Router.extend({
         "": "about",
         "!about": "about",
         "!song-list": "songList",
-        "!listen": "listen",
-        "!watch": "watch",
+        "!media": "media",
         "!shows": "shows",
-        "!reviews": "reviews"
+        "!booking": "booking"
     },
     "channel": Backbone.Radio.channel('state'),
     "about": function () {
@@ -23,20 +22,16 @@ module.exports = Backbone.Router.extend({
         'use strict';
         this.channel.trigger('load', 'songList');
     },
-    "listen": function () {
+    "media": function () {
         'use strict';
-        this.channel.trigger('load', 'listen');
-    },
-    "watch": function () {
-        'use strict';
-        this.channel.trigger('load', 'watch');
+        this.channel.trigger('load', 'media');
     },
     "shows": function () {
         'use strict';
         this.channel.trigger('load', 'shows');
     },
-    "reviews": function () {
+    "booking": function () {
         'use strict';
-        this.channel.trigger('load', 'reviews');
+        this.channel.trigger('load', 'booking');
     }
 });

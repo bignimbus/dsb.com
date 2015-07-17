@@ -12,11 +12,10 @@ var _ = require('underscore'),
     template = require('../templates/content.hbs'),
     pageTemplates = {
         "about": require('../templates/about.hbs'),
-        "listen": require('../templates/listen.hbs'),
-        "reviews": require('../templates/reviews.hbs'),
+        "media": require('../templates/media.hbs'),
+        "booking": require('../templates/booking.hbs'),
         "shows": require('../templates/shows.hbs'),
-        "songList": require('../templates/song-list.hbs'),
-        "watch": require('../templates/watch.hbs')
+        "songList": require('../templates/song-list.hbs')
     };
 
 Backbone.Radio = require('backbone.radio');
@@ -27,11 +26,10 @@ module.exports = Mn.LayoutView.extend({
     "pages": {},
     "regions": {
         "about": "#about",
-        "listen": "#listen",
-        "reviews": "#reviews",
+        "media": "#media",
+        "booking": "#booking",
         "shows": "#shows",
-        "songList": "#song-list",
-        "watch": "#watch"
+        "songList": "#song-list"
     },
     "initialize": function (opts) {
         'use strict';
@@ -61,12 +59,12 @@ module.exports = Mn.LayoutView.extend({
             "about": new ChildView({
                 "template": pageTemplates.about
             }),
-            "listen": new CollectionView({
+            "media": new CollectionView({
                 "collection": new AudioCollection(),
                 "childView": AudioView
             }),
-            "reviews": new ChildView({
-                "template": pageTemplates.reviews
+            "booking": new ChildView({
+                "template": pageTemplates.booking
             }),
             "shows": new ShowsView({
                 "template": pageTemplates.shows
@@ -74,9 +72,6 @@ module.exports = Mn.LayoutView.extend({
             "songList": new CollectionView({
                 "collection": new SongCollection(),
                 "childView": SongView
-            }),
-            "watch": new ChildView({
-                "template": pageTemplates.watch
             })
         };
         _(this.pages).each(function (page, name) {
