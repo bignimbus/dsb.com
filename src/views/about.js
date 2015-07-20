@@ -14,6 +14,6 @@ module.exports = ChildView.extend({
                     "carousel": true
                 }
             );
-        }, 500);
+        }, 1000);
     }
 });
