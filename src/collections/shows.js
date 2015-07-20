@@ -3,6 +3,7 @@ var _ = require('underscore'),
 
 module.exports = Backbone.Collection.extend({
     "index": 0,
+    "INCREMENT": 10,
     "url": "http://jdauriemma.startlogic.com/dsb/get-events.php",
     "comparator": function (model) {
         'use strict';
@@ -11,12 +12,10 @@ module.exports = Backbone.Collection.extend({
     "parse": function (response) {
         'use strict';
         if (response.first) {
-            console.log('first');
             this.first = true;
             _.delay(_.bind(this.trigger, this, 'first'), 4000);
         }
         if (response.last) {
-            console.log('last');
             this.last = true;
             _.delay(_.bind(this.trigger, this, 'last'), 4000);
         }
@@ -25,7 +24,7 @@ module.exports = Backbone.Collection.extend({
     },
     "getIncrement": function (back) {
         'use strict';
-        var increment = back ? this.index - 20 : this.length + this.index;
+        var increment = back ? this.index - this.INCREMENT : this.length + this.index;
         if (increment < 0) {
             increment = 0;
         }

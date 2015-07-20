@@ -28,12 +28,10 @@ module.exports = LayoutView.extend({
     },
     "hidePrevious": function () {
         'use strict';
-        console.log('hideprev');
         this.hideElement('#past-shows');
     },
     "hideNext": function () {
         'use strict';
-        console.log('hidenext');
         this.hideElement('#future-shows');
     },
     "getPast": function () {
