@@ -1,4 +1,5 @@
-var Backbone = require('backbone');
+var _ = require('underscore'),
+    Backbone = require('backbone');
 
 module.exports = Backbone.Collection.extend({
     "index": 0,
@@ -9,6 +10,16 @@ module.exports = Backbone.Collection.extend({
     },
     "parse": function (response) {
         'use strict';
+        if (response.first) {
+            console.log('first');
+            this.first = true;
+            _.delay(_.bind(this.trigger, this, 'first'), 4000);
+        }
+        if (response.last) {
+            console.log('last');
+            this.last = true;
+            _.delay(_.bind(this.trigger, this, 'last'), 4000);
+        }
         this.index = response.index;
         return response.data;
     },

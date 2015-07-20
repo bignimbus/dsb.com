@@ -1,8 +1,7 @@
 var Mn = require('backbone.marionette'),
     LayoutView = require('./layout-view'),
     CollectionView = require('./group-view'),
-    EventView = require('./event'),
-    ShowCollection = require('../collections/shows');
+    EventView = require('./event');
 
 module.exports = LayoutView.extend({
     "regions": {
@@ -12,9 +11,12 @@ module.exports = LayoutView.extend({
         "click #past-shows": "getPast",
         "click #future-shows": "getFuture"
     },
+    "collectionEvents": {
+        "first": "hidePrevious",
+        "last": "hideNext"
+    },
     "initialize": function () {
         'use strict';
-        this.collection = new ShowCollection();
         this.eventView = new CollectionView({
             "collection": this.collection,
             "childView": EventView
@@ -24,14 +26,22 @@ module.exports = LayoutView.extend({
         'use strict';
         this.showChildView('shows', this.eventView);
     },
+    "hidePrevious": function () {
+        'use strict';
+        console.log('hideprev');
+        this.hideElement('#past-shows');
+    },
+    "hideNext": function () {
+        'use strict';
+        console.log('hidenext');
+        this.hideElement('#future-shows');
+    },
     "getPast": function () {
         'use strict';
-        console.log('getpast');
         this.collection.getIncrement(true);
     },
     "getFuture": function () {
         'use strict';
-        console.log('getfuture');
         this.collection.getIncrement();
     }
 });

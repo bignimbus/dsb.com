@@ -1,5 +1,4 @@
-var $ = require('jquery'),
-    _ = require('underscore'),
+var _ = require('underscore'),
     Backbone = require('backbone'),
     Mn = require('backbone.marionette');
 
@@ -12,5 +11,9 @@ module.exports = Mn.LayoutView.extend({
     "showPage": function (fn) {
         'use strict';
         this.$el.fadeIn(this.interval, fn);
+    },
+    "hideElement": function (selector) {
+        'use strict';
+        this.$(selector).fadeOut(this.interval);
     }
 });

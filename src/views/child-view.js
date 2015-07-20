@@ -1,5 +1,4 @@
-var $ = require('jquery'),
-    _ = require('underscore'),
+var _ = require('underscore'),
     Backbone = require('backbone'),
     Mn = require('backbone.marionette');
 
