@@ -1,3 +1,11 @@
+iframe {
+    height: 400px;
+    width: 100%;
+    +mobile() {
+        height: 200px;
+    }
+}
+
 .track {
     col(1/2, cycle: 2, gutter: 0);
     .cover {
