@@ -4,9 +4,11 @@ var _ = require('underscore'),
 
 module.exports = Mn.CollectionView.extend({
     "interval": 300,
-    "initialize": function () {
+    "initialize": function (opts) {
         'use strict';
-        this.collection.fetch();
+        if (opts.fetch !== false) {
+            this.collection.fetch();
+        }
     },
     "hidePage": function (fn) {
         'use strict';

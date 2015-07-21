@@ -13,10 +13,16 @@
             </div>
         </div>
         <div class="misc">
-            {{getLinks info}}
+            {{#if mini}}
+                <a href="#!shows">more info</a>
+            {{else}}
+                {{getLinks info}}
+            {{/if}}
         </div>
     </div>
+    {{#unless mini}}
     <div class="map">
         <iframe frameborder="0" src="https://www.google.com/maps/embed/v1/place?q={{address location}}&key=AIzaSyAMYO0neG22yUo8rCK4sVmnzIKc8CjgMfM"></iframe>
     </div>
+    {{/unless}}
 </div>

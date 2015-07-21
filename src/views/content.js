@@ -32,6 +32,7 @@ module.exports = Mn.LayoutView.extend({
     "initialize": function (opts) {
         'use strict';
         this.state = opts.state;
+        this.showCollection = new ShowCollection();
     },
     "onRender": function () {
         'use strict';
@@ -54,7 +55,9 @@ module.exports = Mn.LayoutView.extend({
     "initChildViews": function () {
         'use strict';
         this.pages = {
-            "home": new HomeView(),
+            "home": new HomeView({
+                "collection": this.showCollection
+            }),
             "media": new MediaView({
                 "collection": new AudioCollection()
             }),
@@ -63,7 +66,7 @@ module.exports = Mn.LayoutView.extend({
             }),
             "shows": new ShowsView({
                 "template": pageTemplates.shows,
-                "collection": new ShowCollection()
+                "collection": this.showCollection
             }),
             "about": new AboutView({
                 "collection": new SongCollection()

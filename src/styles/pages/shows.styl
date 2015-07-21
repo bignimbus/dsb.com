@@ -18,6 +18,16 @@
 .event {
     cf();
     margin-top: 1rem;
+    &.mini {
+        col(1/3, cycle: 3);
+        +mobile() {
+            col(1, cycle: 1, uncycle: 3);
+        }
+    }
+}
+
+.mini .info .text {
+    col(1, cycle: 1, uncycle: 2);
 }
 
 .info {

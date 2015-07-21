@@ -1,14 +1,22 @@
 /* global blueimp */
 var _ = require('underscore'),
-    ChildView = require('./child-view'),
+    LayoutView = require('./layout-view'),
+    CollectionView = require('./group-view'),
+    EventView = require('./event'),
     Backbone = require('backbone'),
     template = require('../templates/home.hbs');
 
 Backbone.Radio = require('backbone.radio');
 
-module.exports = ChildView.extend({
+module.exports = LayoutView.extend({
     "template": template,
     "channel": Backbone.Radio.channel('state'),
+    "regions": {
+        "calendar": ".mini-calendar"
+    },
+    "collectionEvents": {
+        "sync": "renderCalendar"
+    },
     "initialize": function () {
         'use strict';
         this.listenTo(this.channel, 'load', this.initGallery);
@@ -32,5 +40,21 @@ module.exports = ChildView.extend({
                 this.galleryLoaded = true;
             }
         }, this), 500);
+    },
+    "renderCalendar": function () {
+        'use strict';
+        var collection = this.collection.filter(function (model) {
+                return !/private/i.test(model.get('summary'));
+            });
+        collection = collection.slice(0, 3);
+        this.miniCalendar = new CollectionView({
+            "collection": new Backbone.Collection(collection.map(function (model) {
+                model.set({"mini": true});
+                return model;
+            })),
+            "childView": EventView.extend({"className": "event mini"}),
+            "fetch": false
+        });
+        this.showChildView('calendar', this.miniCalendar);
     }
 });
