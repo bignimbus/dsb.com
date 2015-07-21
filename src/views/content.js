@@ -5,10 +5,10 @@ var _ = require('underscore'),
     ShowCollection = require('../collections/shows'),
     ChildView = require('./child-view'),
     CollectionView = require('./group-view'),
+    AboutView = require('./about'),
     AudioCollection = require('../collections/audio'),
     HomeView = require('./home'),
     ShowsView = require('./shows'),
-    SongView = require('./song'),
     MediaView = require('./media'),
     template = require('../templates/content.hbs'),
     pageTemplates = {
@@ -65,9 +65,8 @@ module.exports = Mn.LayoutView.extend({
                 "template": pageTemplates.shows,
                 "collection": new ShowCollection()
             }),
-            "about": new CollectionView({
-                "collection": new SongCollection(),
-                "childView": SongView
+            "about": new AboutView({
+                "collection": new SongCollection()
             })
         };
         _(this.pages).each(function (page, name) {

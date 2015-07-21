@@ -20,6 +20,9 @@ module.exports = Mn.LayoutView.extend({
         "navigation": ".main-nav",
         "content": ".main-content"
     },
+    "events": {
+        "click .scroll-to": "scrollTo"
+    },
     "initialize": function () {
         'use strict';
         this.listenToOnce(this.channels.state, 'load', this.initState);
@@ -41,5 +44,12 @@ module.exports = Mn.LayoutView.extend({
     "toggleMenu": function (opts) {
         'use strict';
         this.$(this.regions.navigation)[opts.method]('show');
+    },
+    "scrollTo": function (e) {
+        'use strict';
+        e.preventDefault();
+        var $el = this.$(e.currentTarget),
+            top = $($el.attr('href')).offset().top;
+        $('html, body').scrollTop(top);
     }
 });
