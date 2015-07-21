@@ -3,18 +3,14 @@ var _ = require('underscore'),
     Mn = require('backbone.marionette'),
     SongCollection = require('../collections/song-list'),
     ShowCollection = require('../collections/shows'),
-    ChildView = require('./child-view'),
+    BookingView = require('./booking'),
     CollectionView = require('./group-view'),
     AboutView = require('./about'),
     AudioCollection = require('../collections/audio'),
     HomeView = require('./home'),
     ShowsView = require('./shows'),
     MediaView = require('./media'),
-    template = require('../templates/content.hbs'),
-    pageTemplates = {
-        "booking": require('../templates/booking.hbs'),
-        "shows": require('../templates/shows.hbs')
-    };
+    template = require('../templates/content.hbs');
 
 Backbone.Radio = require('backbone.radio');
 
@@ -61,11 +57,8 @@ module.exports = Mn.LayoutView.extend({
             "media": new MediaView({
                 "collection": new AudioCollection()
             }),
-            "booking": new ChildView({
-                "template": pageTemplates.booking
-            }),
+            "booking": new BookingView(),
             "shows": new ShowsView({
-                "template": pageTemplates.shows,
                 "collection": this.showCollection
             }),
             "about": new AboutView({

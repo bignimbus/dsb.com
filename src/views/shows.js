@@ -1,9 +1,11 @@
 var Mn = require('backbone.marionette'),
     LayoutView = require('./layout-view'),
     CollectionView = require('./group-view'),
+    template = require('../templates/shows.hbs'),
     EventView = require('./event');
 
 module.exports = LayoutView.extend({
+    "template": template,
     "regions": {
         "shows": ".events"
     },
