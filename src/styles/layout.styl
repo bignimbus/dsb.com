@@ -24,6 +24,9 @@ body {
     h1 {
         padding: .5rem 0;
         text-align: left;
+        +mobile() {
+            text-align: center;
+        }
         .logo {
             background: url(/assets/images/dsb_fish.png) no-repeat;
             background-size: cover;
@@ -31,11 +34,20 @@ body {
             height: 64px;
             width: 100px;
         }
-        .header-text {
+        .header-text,
+        .icons {
             display: inline-block;
             vertical-align: bottom;
             +mobile() {
-                font-size: 1.2rem;
+                display: block;
+                font-size: 1.3rem;
+            }
+            a {
+                color: $color_5;
+                transition: color $interval;
+                &:hover {
+                    color: $color_2;
+                }
             }
         }
     }
