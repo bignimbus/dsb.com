@@ -6,7 +6,7 @@ var _ = require('underscore'),
     ChildView = require('./child-view'),
     CollectionView = require('./group-view'),
     AudioCollection = require('../collections/audio'),
-    AboutView = require('./about'),
+    HomeView = require('./home'),
     ShowsView = require('./shows'),
     SongView = require('./song'),
     MediaView = require('./media'),
@@ -23,11 +23,11 @@ module.exports = Mn.LayoutView.extend({
     "channel": Backbone.Radio.channel('state'),
     "pages": {},
     "regions": {
-        "about": "#about",
+        "home": "#home",
         "media": "#media",
         "booking": "#booking",
         "shows": "#shows",
-        "songList": "#song-list"
+        "about": "#about"
     },
     "initialize": function (opts) {
         'use strict';
@@ -54,7 +54,7 @@ module.exports = Mn.LayoutView.extend({
     "initChildViews": function () {
         'use strict';
         this.pages = {
-            "about": new AboutView(),
+            "home": new HomeView(),
             "media": new MediaView({
                 "collection": new AudioCollection()
             }),
@@ -65,7 +65,7 @@ module.exports = Mn.LayoutView.extend({
                 "template": pageTemplates.shows,
                 "collection": new ShowCollection()
             }),
-            "songList": new CollectionView({
+            "about": new CollectionView({
                 "collection": new SongCollection(),
                 "childView": SongView
             })

@@ -2,7 +2,7 @@
 var _ = require('underscore'),
     ChildView = require('./child-view'),
     Backbone = require('backbone'),
-    template = require('../templates/about.hbs');
+    template = require('../templates/home.hbs');
 
 Backbone.Radio = require('backbone.radio');
 
@@ -20,7 +20,7 @@ module.exports = ChildView.extend({
     "initGallery": function (state) {
         'use strict';
         _.delay(_.bind(function () {
-            if (!this.galleryLoaded && (state === 'about' || this.$el.is(':visible'))) {
+            if (!this.galleryLoaded && (state === 'home' || this.$el.is(':visible'))) {
                 console.log('init gallery');
                 blueimp.Gallery(
                     document.getElementById('links').getElementsByTagName('a'),
