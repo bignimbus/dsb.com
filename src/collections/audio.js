@@ -8,6 +8,7 @@ module.exports = Backbone.Collection.extend({
         SC.get('/playlists/121174072', _.bind(function (response) {
             var tracks = _(response.tracks).map(this.indexTracks, this);
             this.set(tracks);
+            this.trigger('sync');
         }, this));
     },
     "indexTracks": function (track, index) {

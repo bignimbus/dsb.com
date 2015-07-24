@@ -7,7 +7,8 @@ module.exports = Mn.ItemView.extend({
     "template": template,
     "className": "track",
     "events": {
-        "click .cover": "togglePlay"
+        "click .cover": "togglePlay",
+        "click .top-play": "togglePlay"
     },
     "togglePlay": function (firstPlay) {
         'use strict';
@@ -15,7 +16,7 @@ module.exports = Mn.ItemView.extend({
             url;
         if (!this.sound) {
             this.state('loading');
-            url = this.$('.art').data('stream');
+            url = this.model.get('stream_url');
             id = url.match(/\/tracks\/\w.+?\//)[0];
 
             SC.stream(id, {
@@ -44,7 +45,7 @@ module.exports = Mn.ItemView.extend({
     "state": function (state) {
         'use strict';
         var $el = this.$('.play');
-            $el.removeClass('fa-play fa-spinner fa-spin fa-pause');
+        $el.removeClass('fa-play fa-spinner fa-spin fa-pause');
         switch (state) {
             case 'loading':
                 $el.addClass('fa-spinner fa-spin');
