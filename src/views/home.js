@@ -29,7 +29,6 @@ module.exports = LayoutView.extend({
         'use strict';
         _.delay(_.bind(function () {
             if (!this.galleryLoaded && (state === 'home' || this.$el.is(':visible'))) {
-                console.log('init gallery');
                 blueimp.Gallery(
                     document.getElementById('links').getElementsByTagName('a'),
                     {

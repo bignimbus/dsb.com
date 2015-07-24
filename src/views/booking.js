@@ -13,7 +13,8 @@ module.exports = LayoutView.extend({
         'use strict';
         this.reviewsView = new CollectionView({
             "collection": new ReviewsCollection(),
-            "childView": ReviewView
+            "childView": ReviewView,
+            "isGallery": true
         });
     },
     "onRender": function () {

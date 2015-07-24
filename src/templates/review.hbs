@@ -1,1 +1,7 @@
-hi {{date}} {{location}} {{name}} {{text}}
+<h4>{{date}} <span class="fa fa-music"></span> {{location}}</h4>
+<h3>
+    {{#if link}}<a href="{{link}}" target="_blank">{{/if}}
+        {{name}} wrote...
+    {{#if link}}</a>{{/if}}
+</h3>
+<p>{{text}}</p>

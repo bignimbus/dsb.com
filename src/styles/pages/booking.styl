@@ -1,0 +1,26 @@
+.contact {
+    h2 {
+        color: #fff;
+        text-align: center;
+        +mobile() {
+            font-size: 1rem;
+        }
+        &.email {
+            +mobile() {
+                font-size: .8rem;
+            }
+        }
+    }
+}
+
+.review {
+    display: none;
+}
+
+.awards {
+    text-align: center;
+    width: 100%;
+    img {
+        max-width: 100%;
+    }
+}
