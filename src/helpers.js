@@ -18,7 +18,7 @@ module.exports = function () {
         if (!str) {
             return '';
         }
-        var text = str.replace(/((?:https?|www).+)\s?/gi, '<a href="$1" target="_blank">$1</a>');
+        var text = str.replace(/(?:(https?\:\/\/|www\.)?)(.+)\s?/gi, '<a href="$1$2$3" target="_blank">$3</a>');
         return new Handlebars.SafeString(text);
     });
 

@@ -9,6 +9,7 @@ module.exports = Backbone.Router.extend({
         "": "home",
         "!home": "home",
         "!about": "about",
+        "!song-list": "songList",
         "!media": "media",
         "!shows": "shows",
         "!booking": "booking"
@@ -21,6 +22,10 @@ module.exports = Backbone.Router.extend({
     "about": function () {
         'use strict';
         this.channel.trigger('load', 'about');
+    },
+    "songList": function () {
+        'use strict';
+        this.channel.trigger('load', 'songList');
     },
     "media": function () {
         'use strict';

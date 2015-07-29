@@ -5,11 +5,13 @@ var _ = require('underscore'),
     ShowCollection = require('../collections/shows'),
     BookingView = require('./booking'),
     CollectionView = require('./group-view'),
-    AboutView = require('./about'),
+    LayoutView = require('./layout-view'),
+    aboutTemplate = require('../templates/about.hbs'),
     AudioCollection = require('../collections/audio'),
     HomeView = require('./home'),
     ShowsView = require('./shows'),
     MediaView = require('./media'),
+    SongView = require('./song'),
     template = require('../templates/content.hbs');
 
 Backbone.Radio = require('backbone.radio');
@@ -23,7 +25,8 @@ module.exports = Mn.LayoutView.extend({
         "media": "#media",
         "booking": "#booking",
         "shows": "#shows",
-        "about": "#about"
+        "about": "#about",
+        "songList": "#song-list"
     },
     "initialize": function (opts) {
         'use strict';
@@ -61,8 +64,12 @@ module.exports = Mn.LayoutView.extend({
             "shows": new ShowsView({
                 "collection": this.showCollection
             }),
-            "about": new AboutView({
-                "collection": new SongCollection()
+            "about": new LayoutView({
+                "template": aboutTemplate
+            }),
+            "songList": new CollectionView({
+                "collection": new SongCollection(),
+                "childView": SongView
             })
         };
         _(this.pages).each(function (page, name) {

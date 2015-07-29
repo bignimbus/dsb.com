@@ -8,7 +8,7 @@ module.exports = Backbone.Collection.extend({
         var genres = _.chain(response).pluck('genre').union().value();
         return genres.map(function (genre, index) {
             return {
-                "index": (index + 1) % 4,
+                "index": index % 4,
                 "name": genre,
                 "songs": _(response).where({"genre": genre})
             };
